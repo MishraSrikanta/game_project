@@ -2,9 +2,7 @@ import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm//loaders/GLTFLoader";
-import { neonCursor } from "threejs-toys";
 import { gsap } from "gsap/gsap-core";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -21,7 +19,6 @@ const renderer = new THREE.WebGLRenderer({
   canvas: myCanvas,
   alpha: true,
 });
-// renderer.outputColorSpace = THREE.SRGBColorSpace
 renderer.shadowMap.enabled = true;
 
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -36,12 +33,40 @@ controls.enableZoom = false;
 
 const isConstObjectAdded = true;
 if (isConstObjectAdded) {
+  const changeBgImage = () => {
+    let bgImage = document.getElementById('bgImage')
+    const allImage = [
+      'cod1.jpg',
+      'cod2.jpg',
+      'cod3.jpg',
+      'cod4.png',
+      'cod5.jpg',
+      'dune.jpg',
+      'marvel.jpg',
+      'onimusha.jpg',
+      'elden.jpg',
+    ]
+    setInterval(() => {
+      const random = Math.floor(Math.random() * allImage.length);
+      bgImage.src = 'Images/pages/' + allImage[random]
+    }, 3000);
+  }
+  changeBgImage()
+
+  const ambLight = new THREE.AmbientLight('white', 1);
+  // scene.add(ambLight);
+
+  const dirKight = new THREE.DirectionalLight('white', 1)
+  scene.add(dirKight);
   let mesh;
-  // mesh = new THREE.Mesh(
-  //   new THREE.BoxGeometry(50, 50, 50),
-  //   new THREE.MeshBasicMaterial({ color: "red" })
-  // );
-  // scene.add(mesh);
+  new GLTFLoader().load('assets/gun1.glb', (x) => {
+    debugger;
+    mesh = x.scene.children[0];
+    mesh.scale.set(8, 8, 8)
+    dirKight.target = mesh;
+    scene.add(mesh);
+  })
+
 
   const sectionIn = () => {
     let curSection;
@@ -79,8 +104,6 @@ if (isConstObjectAdded) {
     }
   });
 }
-
-//#endregion
 
 function animate() {
   // group.rotateY(-0.001);

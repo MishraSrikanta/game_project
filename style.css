@@ -19,12 +19,26 @@ canvas {
 }
 
 /* -------------------New Code---------------- */
+.bg_image{
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  object-fit: contain;
+}
+
+.bg_image img{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  transition: all ease-in-out;
+}
 
 .page1 {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(207, 200, 200);
-  background-image: url(Images/pages/page1.jpg);
+  background-color: rgb(215, 223, 215);
+  /* background-image: url(Images/bgimage.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   image-rendering: optimizeQuality;
@@ -34,8 +48,8 @@ canvas {
 .page2 {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(107, 58, 58);
-  background-image: url(Images/pages/page2.jpg);
+  background-color: rgb(215, 223, 215);
+  /* background-image: url(Images/pages/page2.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0px;
@@ -44,8 +58,8 @@ canvas {
 .page3 {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(39, 30, 30);
-  background-image: url(Images/pages/page3.jpg);
+  background-color: rgb(215, 223, 215);
+  /* background-image: url(Images/pages/page3.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0px;
@@ -79,8 +93,8 @@ canvas {
 .container {
   position: absolute;
   width: 100vw;
-  top: 20%;
-  height: 70vh;
+ bottom: 5%;
+  height: 30vh;
   display: flex;
   justify-content: center;
   /* gap: 10px; */
@@ -91,7 +105,7 @@ canvas {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(36, 36, 36);
   transition: all ease-in-out 0.5s;
 }
 
