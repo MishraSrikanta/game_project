@@ -70,6 +70,7 @@ if (isConstObjectAdded) {
 
   const sectionIn = () => {
     let curSection;
+    
     const allSections = document.querySelectorAll("section");
     allSections.forEach((element) => {
       const box = element.getBoundingClientRect();
