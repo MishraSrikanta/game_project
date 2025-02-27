@@ -48,7 +48,7 @@ if (isConstObjectAdded) {
     ]
     setInterval(() => {
       const random = Math.floor(Math.random() * allImage.length);
-      bgImage.src = 'Images/pages/' + allImage[random]
+      bgImage.src = allImage[random]
     }, 3000);
   }
   changeBgImage()
