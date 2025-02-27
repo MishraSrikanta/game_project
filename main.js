@@ -36,9 +36,9 @@ if (isConstObjectAdded) {
   const changeBgImage = () => {
     let bgImage = document.getElementById('bgImage')
     const allImage = [
-      'cod1.jpg',
-      'cod2.jpg',
-      'cod3.jpg',
+      'dist/assets/cod1.1bffb0ed.jpg',
+      'dist/assets/cod2.c4cc0be0.jpg',
+      'dist/assets/cod3.6c699fde.jpg',
       'cod4.png',
       'cod5.jpg',
       'dune.jpg',
@@ -48,7 +48,7 @@ if (isConstObjectAdded) {
     ]
     setInterval(() => {
       const random = Math.floor(Math.random() * allImage.length);
-      bgImage.src = allImage[random]
+      if(bgImage) bgImage.src = allImage[random]
     }, 3000);
   }
   changeBgImage()
